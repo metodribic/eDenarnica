@@ -31,7 +31,7 @@
               <li class="active"><a href="#/">Domov</a></li>
               <li><a ng-href="#/about">Zgodovina</a></li>
               <li><a ng-href="#/">Profil</a></li>
-              <li><a ng-href="#/add">DODAJ+-</a></li>
+              <li><a ng-href="#/" data-toggle="modal" data-target="#addModal">DODAJ+-</a></li>
 
             </ul>
 
@@ -47,6 +47,71 @@
       <div ng-view=""></div>
     </div>
     <!-- END CONTETN -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="AddController">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">
+              Dodajanje novega <span ng-class="{ 'priliv': type=='priliva', 'odliv': type=='odliva' }">{{type}}</span>!
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div class="col-12">
+              <!-- TYPE -->
+              <label class="radio-inline odliv">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="odliva" ng-model="type"> Odliv
+              </label>
+              <label class="radio-inline priliv">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="priliva" ng-model="type"> Priliv
+              </label>
+
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputPassword" class="col-sm-2 control-label">Opis</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="opis" type="text" placeholder="npr. Položnica za elektriko">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputPassword" class="col-sm-2 control-label">Oznake: </label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="oznake" type="text" placeholder="npr. elektrika, položnica, marec">
+                  </div>
+                </div>
+
+                <!-- INPUT KOLIČINA -->
+                <div class="form-group">
+                  <label for="inputPassword" class="col-sm-2 control-label">Količina: </label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="kolicina" type="text" placeholder="npr. 204.45">
+                  </div>
+                </div>
+
+                <!-- INPUT KOLIČINA -->
+                <div class="form-group">
+                  <label for="inputPassword" class="col-sm-2 control-label">Datum: </label>
+                  <div class="col-sm-10">
+                    <input class="form-control" id="datum" type="date">
+                  </div>
+                </div>
+
+              </form>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Prekliči</button>
+            <button type="button" class="btn btn-primary">Shrani!</button>
+          </div>
+
+      </div>
+    </div>
+    </div>
+    </div>
     
 
     <!--  FOOTER -->
