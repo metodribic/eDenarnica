@@ -1,0 +1,108 @@
+<div class="col-12">
+	<!-- SEARCH -->
+	<div class="col-md-8 col-lg-8 col-sm-12">
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-search"></i></span>
+            <input type="search" class="form-control" placeholder="Iskanje po izdatkih" ng-model-options="{ debounce: 500 }" />
+        </div>
+    </div>
+
+    <!-- SEARCH CONTENT -->
+    <div class="container" ng-controller="LatestController">
+  <h2>Pregled preteklih prihodkov in odhodkov</h2>
+  <br>        
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Opis</th>
+        <th>Datum</th>
+        <th>Oznaka</th>
+        <th>Tip</th>
+        <th>Količina</th>
+      </tr>
+    </thead>
+
+    <tfoot>
+      <tr style="width:100%">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><b>Stanje:</b></td>
+        <td>180€</td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <tr>
+        <td>Nakup 0</td>
+        <td>1.1.2016</td>
+        <td>Elektrika</td>
+        <td>Odliv</td>
+        <td class="odliv">-147.76 €</td>
+        
+      </tr>
+      <tr>
+        <td>Nakup 12</td>
+        <td>12.11.2015</td>
+        <td>Avto</td>
+        <td>Odliv</td>
+        <td class="odliv">-13.47 €</td>
+        
+      </tr>
+      <tr>
+        <td>Plača marec</td>
+        <td>12.11.2015</td>
+        <td>Plača</td>
+        <td>Priliv</td>
+        <td class="priliv">+1780.97 €</td>
+      </tr>
+      <tr>
+        <td>Nakup 0</td>
+        <td>12.11.2015</td>
+        <td>Elektrika</td>
+        <td>Odliv</td>
+        <td class="odliv">-147.76 €</td>
+        
+      </tr>
+      <tr>
+        <td>Nakup 12</td>
+        <td>12.11.2015</td>
+        <td>Avto</td>
+        <td>Odliv</td>
+        <td class="odliv">-13.47 €</td>
+        
+      </tr>
+      <tr>
+        <td>Dolg Miha</td>
+        <td>12.11.2015</td>
+        <td>Plača</td>
+        <td>Priliv</td>
+        <td class="priliv">+500 €</td>
+      </tr>
+      <tr>
+        <td>Nakup 0</td>
+        <td>12.11.2015</td>
+        <td>Elektrika</td>
+        <td>Odliv</td>
+        <td class="odliv">-147.76 €</td>
+        
+      </tr>
+      <tr>
+        <td>Nakup 12</td>
+        <td>12.11.2015</td>
+        <td>Avto</td>
+        <td>Odliv</td>
+        <td class="odliv">-13.47 €</td>
+        
+      </tr>
+      <tr>
+        <td>Plača december</td>
+        <td>12.11.2015</td>
+        <td>Plača, Nadure</td>
+        <td>Priliv</td>
+        <td class="priliv">+2076.97 €</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

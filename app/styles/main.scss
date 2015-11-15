@@ -135,7 +135,6 @@ body {
   color: $odliv;
 }
 
-
 .footer {
     position: fixed !important;
     height: 50px;
@@ -145,4 +144,14 @@ body {
 
 .modal-margin {
   margin-top: 10px;
+}
+
+.radio-inline, .checkbox-inline {
+  padding-left: 50px;
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+.padding-bot20{
+  padding-bottom: 20px;
 }

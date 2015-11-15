@@ -1,17 +1,15 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name eDenarnicaApp.controller:UserCtrl
- * @description
- * # UserCtrl
- * Controller of the eDenarnicaApp
+ * Controller for editin user settings
  */
 angular.module('eDenarnicaApp')
-  .controller('UserCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	.controller('UserController', ['$scope', function($scope) {
+		// tip dohodka
+		$scope.user = {
+			name: 'Metod',
+			surname: 'Ribič',
+			username: 'metod',
+			email: 'metod.ribic@gmail.com'
+		};
+  	}]);

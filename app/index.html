@@ -9,7 +9,7 @@
   </head>
   <body ng-app="eDenarnicaApp">
   
-    <!-- #### SITE CONTENT #### -->
+    <!-- HEADER -->
     <div class="header">
       <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
@@ -29,9 +29,9 @@
 
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Domov</a></li>
-              <li><a ng-href="#/about">Zgodovina</a></li>
-              <li><a ng-href="#/">Profil</a></li>
-              <li><a ng-href="#/" data-toggle="modal" data-target="#addModal">DODAJ+-</a></li>
+              <li><a ng-href="#/izdatki">Vsi</a></li>
+              <li><a ng-href="#/profil">Profil</a></li>
+              <li><a ng-href="#/" data-toggle="modal" data-target="#addModal">DODAJ</a></li>
 
             </ul>
 
@@ -46,9 +46,8 @@
     <div class="container">
       <div ng-view=""></div>
     </div>
-    <!-- END CONTETN -->
 
-    <!-- Modal -->
+    <!-- MODAL -->
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="AddController">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -60,65 +59,82 @@
           </div>
           <div class="modal-body">
             <div class="col-12">
-              <!-- TYPE -->
-              <label class="radio-inline odliv">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="odliva" ng-model="type"> Odliv
-              </label>
-              <label class="radio-inline priliv">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="priliva" ng-model="type"> Priliv
-              </label>
+              <!-- CHECKBOX TYPE -->
+              <center>
+                <label class="radio-inline odliv">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="odliva" ng-model="type"> Odliv
+                </label>
+                <label class="radio-inline priliv">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="priliva" ng-model="type"> Priliv
+                </label>
+              </center>
 
+              <!-- INPUT OPIS -->
               <form class="form-horizontal">
                 <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">Opis</label>
+                  <label for="inputOpis" class="col-sm-2 control-label">Opis</label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="opis" type="text" placeholder="npr. Položnica za elektriko">
+                    <input type="text" class="form-control" id="opis" type="text" placeholder="npr. Položnica za elektriko">
                   </div>
                 </div>
-
+                <!-- INPUT OZNAKE -->
                 <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">Oznake: </label>
+                  <label for="labelOznaka" class="col-sm-2 control-label">Oznake: </label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="oznake" type="text" placeholder="npr. elektrika, položnica, marec">
-                  </div>
-                </div>
-
-                <!-- INPUT KOLIČINA -->
-                <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">Količina: </label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="kolicina" type="text" placeholder="npr. 204.45">
+                    <input type="text" class="form-control" id="oznake" type="text" placeholder="npr. elektrika, položnica, marec">
                   </div>
                 </div>
 
                 <!-- INPUT KOLIČINA -->
                 <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 control-label">Datum: </label>
+                  <label for="labelKolicina" class="col-sm-2 control-label">Količina: </label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="kolicina" type="text" placeholder="npr. 204.45">
+                  </div>
+                </div>
+
+                <!-- INPUT KOLIČINA -->
+                <div class="form-group">
+                  <label for="labelDatum" class="col-sm-2 control-label">Datum: </label>
                   <div class="col-sm-10">
                     <input class="form-control" id="datum" type="date">
                   </div>
                 </div>
-
               </form>
 
-          </div>
+              <!-- DODATNO -->
+              <a class="padding-bot20" ng-click="advanced = !advanced">
+                  Dodatno
+                <span ng-show="!advanced" class="glyphicon glyphicon-menu-down"></span>
+                <span ng-show="advanced" class="glyphicon glyphicon-menu-up"></span>
+              </a>
+              <div ng-show="advanced">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="podrobnosti" class="col-sm-2 control-label">Podrobnejši opis: </label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" rows="5" id="podrobnosti" placeholder="Poljuben tekst"></textarea>
+                    </div>
+                  </div>
 
+                </form>
+              </div>
+          </div>
+          <!-- MODAL FOOTER -->
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Prekliči</button>
-            <button type="button" class="btn btn-primary">Shrani!</button>
+            <button type="button" class="btn btn-primary" ng-click="dodajIzdatek()">Shrani!</button>
           </div>
-
+        </div>
+      </div>
       </div>
     </div>
-    </div>
-    </div>
-    
+    {{test}}
 
     <!--  FOOTER -->
     <div class="footer">
       <div class="container">
-      <center><p>With <i class="glyphicon glyphicon-heart"></i> from the eDenarnica team!</p></center>
-        
+      <center><p>eDenarnica: številka <b>#1</b> v vodenju Vaših izdatkov!</p></center>
       </div>
     </div>
     <!-- END FOOTER -->
@@ -139,6 +155,9 @@
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
     <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

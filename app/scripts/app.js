@@ -25,16 +25,16 @@ angular
         controllerAs: 'latest'
       })
 
-      .when('/about', {
-        templateUrl: 'views/first.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/izdatki', {
+        templateUrl: 'views/izdatki.html',
+        controller: 'IzdatkiCtrl',
+        controllerAs: 'izdatki'
       })
 
-      .when('/add', {
-        templateUrl: 'views/add.html',
-        controller: 'AddController',
-        controllerAs: 'add'
+      .when('/profil', {
+        templateUrl: 'views/user.html',
+        controller: 'UserController',
+        controllerAs: 'user'
       })
 
       .otherwise({

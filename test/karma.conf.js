@@ -34,6 +34,9 @@ module.exports = function(config) {
       'bower_components/moment/moment.js',
       'bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js',
       'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+      'bower_components/angular-simple-logger/dist/angular-simple-logger.js',
+      'bower_components/lodash/lodash.js',
+      'bower_components/angular-google-maps/dist/angular-google-maps.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

@@ -5,6 +5,19 @@
  */
 angular.module('eDenarnicaApp')
 	.controller('AddController', ['$scope', function($scope) {
-		$scope.type = 'odliva';
-		//get user in/outcomes
-  	}]);
+		//doadatne možnosti
+		$scope.advanced = false;
+		// objekt izdatek
+		$scope.izdatek = {
+			type: 'odliv',
+			opis: '',
+			oznake: [],
+			kolicina: 0,
+			datum: null 
+		};
+
+		$scope.dodajIzdatek = function(){
+			$scope.test ='test';
+		};
+}]);
+

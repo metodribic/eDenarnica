@@ -1,0 +1,35 @@
+<div class="col-12" ng-controller="UserController">
+  <h2>Moj profil</h2>
+  <form class="form-horizontal">
+    <!-- INPUT IME -->
+    <div class="form-group">
+      <label for="inputIme" class="col-sm-2 control-label">Ime: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="ime" type="text" ng-model="user.name">
+      </div>
+    </div>
+    <!-- INPUT PRIIMEK -->
+    <div class="form-group">
+      <label for="labelPriimek" class="col-sm-2 control-label">Priimek: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="priimek" type="text" ng-model="user.surname">
+      </div>
+    </div>
+
+    <!-- INPUT UPORABNIŠKO IME -->
+    <div class="form-group">
+      <label for="labelUsername" class="col-sm-2 control-label">Upor. ime: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username" type="text" ng-model="user.username">
+      </div>
+    </div>
+
+    <!-- INPUT USERNAME -->
+    <div class="form-group">
+      <label for="labelUsername" class="col-sm-2 control-label">Email </label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="username" type="text" ng-model="user.email">
+      </div>
+    </div>
+  </form>
+</div>
