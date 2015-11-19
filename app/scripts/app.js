@@ -27,7 +27,7 @@ angular
 
       .when('/izdatki', {
         templateUrl: 'views/izdatki.html',
-        controller: 'IzdatkiCtrl',
+        controller: 'IzdatkiController',
         controllerAs: 'izdatki'
       })
 

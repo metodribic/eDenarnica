@@ -5,11 +5,18 @@
  */
 angular.module('eDenarnicaApp')
 	.controller('UserController', ['$scope', function($scope) {
-		// tip dohodka
+		// uporabnik
 		$scope.user = {
 			name: 'Metod',
 			surname: 'Ribič',
 			username: 'metod',
 			email: 'metod.ribic@gmail.com'
 		};
+
+		// Edit user
+		$scope.edit = false;
+
+		$scope.editUser = function() {
+    		$scope.edit = !$scope.edit;
+  		};
   	}]);

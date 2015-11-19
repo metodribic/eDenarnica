@@ -5,12 +5,18 @@ $navbar-default-link-color: #ffffff;
 $navbar-default-link-active-color: #add6c1;
 $priliv: #99CC66;
 $odliv: #993333;
+$nav-left-bg: #2B333D;
+
+$nav-pills-active-link-hover-color: #add6c1 !default;
+$nav-tabs-active-link-hover-color: #add6c1 !default;
+$nav-pills-active-link-hover-bg:#339966;
+$nav-pills-border-radius: 0px;
+
 
 
 
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-@import "components-font-awesome/scss/font-awesome.scss";
 // endbower
 
 .browsehappy {
@@ -106,7 +112,6 @@ body {
     left: 200px;
     width: 0;
     height: 100%;
-    //margin-left: -250px;
     background: #313A45;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -125,7 +130,6 @@ body {
 .about-first {
   background-color: #313A45;
 }
-
 
 .priliv {
   color: $priliv;
@@ -146,6 +150,11 @@ body {
   margin-top: 10px;
 }
 
+.margin-right20 {
+  margin-right: 20px;
+}
+
+//velikost checkboxov v modalu
 .radio-inline, .checkbox-inline {
   padding-left: 50px;
   font-size: 20px;
@@ -154,4 +163,35 @@ body {
 
 .padding-bot20{
   padding-bottom: 20px;
+}
+
+.left-menu {
+  z-index: 99;
+  margin-top: -20px;
+  position: fixed;
+  width: 230px;
+  height: 100%;
+  background-color: $nav-left-bg;
+  float: left;
+}
+
+#leftMenu{
+  background-color: $nav-left-bg;
+
+}
+
+.search-margin-bot30{
+  margin-bottom: 30px;
+}
+
+
+.button-add{
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-style: solid;
+  border-color: #3a3a3a;
 }
