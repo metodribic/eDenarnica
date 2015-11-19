@@ -32,36 +32,36 @@
 
           <!-- INPUT IME -->
           <div class="form-group">
-            <label for="inputIme" class="col-sm-2 control-label">Ime: </label>
-            <div class="col-sm-10">
-              <span ng-show="!edit" ng-bind="user.name"></span>
-              <input type="text" class="form-control" id="ime" type="text" ng-model="user.name" ng-show="edit">
+              <label for="inputIme" class="col-sm-3 text-left">Ime: </label>
+            <div class="col-sm-9">
+              <span ng-show="!edit" ng-bind="user.name" class="pull-left"></span>
+              <input type="text" class="form-control pull-left" id="inputIme" type="text" ng-model="user.name" ng-show="edit">
             </div>
           </div>
 
           <!-- INPUT PRIIMEK -->
           <div class="form-group">
-            <label for="labelPriimek" class="col-sm-2 control-label">Priimek: </label>
-            <div class="col-sm-10">
-              <span ng-show="!edit" ng-bind="user.surname"></span>
+            <label for="labelPriimek" class="col-sm-3 text-left">Priimek: </label>
+            <div class="col-sm-9">
+              <span ng-show="!edit" ng-bind="user.surname" class="pull-left"></span>
               <input type="text" class="form-control" id="priimek" type="text" ng-model="user.surname" ng-show="edit">
             </div>
           </div>
 
           <!-- INPUT UPORABNIŠKO IME -->
           <div class="form-group">
-            <label for="labelUsername" class="col-sm-2 control-label">Upor. ime: </label>
-            <div class="col-sm-10">
-            <span ng-show="!edit" ng-bind="user.username"></span>
+            <label for="labelUsername" class="col-sm-3 text-left">Upor. ime: </label>
+            <div class="col-sm-9">
+              <span ng-show="!edit" ng-bind="user.username" class="pull-left"></span>
               <input type="text" class="form-control" id="username" type="text" ng-model="user.username" ng-show="edit">
             </div>
           </div>
 
           <!-- INPUT USERNAME -->
           <div class="form-group">
-            <label for="labelUsername" class="col-sm-2 control-label">Email </label>
-            <div class="col-sm-10">
-            <span ng-show="!edit" ng-bind="user.email" class="pull-left"></span>
+            <label for="labelUsername" class="col-sm-3 text-left">Email </label>
+            <div class="col-sm-9">
+              <span ng-show="!edit" ng-bind="user.email" class="pull-left"></span>
               <input type="email" class="form-control" id="email" type="text" ng-model="user.email" ng-show="edit">
             </div>
           </div>

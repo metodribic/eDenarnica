@@ -5,6 +5,9 @@
  */
 angular.module('eDenarnicaApp')
 	.controller('UserController', ['$scope', function($scope) {
+
+		// TODO GET USER
+		
 		// uporabnik
 		$scope.user = {
 			name: 'Metod',

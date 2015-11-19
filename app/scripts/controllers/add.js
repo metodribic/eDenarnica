@@ -10,14 +10,15 @@ angular.module('eDenarnicaApp')
 		// objekt izdatek
 		$scope.expense = {
 			type: 'odliv',
-			opis: '',
-			oznake: [],
-			kolicina: 0,
-			datum: null 
+			description: '',
+			tags: [],
+			amount: null,
+			date: null,
+			transaction: 'cash'
 		};
 
 		$scope.addExpenses = function(){
-			$scope.test ='test';
+			console.log($scope.expense);
 			// TODO post
 		};
 }]);

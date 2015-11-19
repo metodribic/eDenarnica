@@ -1,16 +1,16 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 $navbar-default-bg: #339966;
-//$navbar-margin-bottom: 0px;
 $navbar-default-link-color: #ffffff;
 $navbar-default-link-active-color: #add6c1;
 $priliv: #99CC66;
 $odliv: #993333;
 $nav-left-bg: #2B333D;
-
-$nav-pills-active-link-hover-color: #add6c1 !default;
-$nav-tabs-active-link-hover-color: #add6c1 !default;
+$nav-a-hover: #add6c1;
 $nav-pills-active-link-hover-bg:#339966;
 $nav-pills-border-radius: 0px;
+/* a tag color */
+//$link-color: #ffffff;
+//$link-hover-color: #339966;
 
 
 
@@ -106,20 +106,7 @@ body {
   }
 }
 
-.navigation-left {
-    z-index: 99;
-    position: fixed;
-    left: 200px;
-    width: 0;
-    height: 100%;
-    background: #313A45;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-// stanje na računu - navbar
+/* stanje na računu - navbar */
 .balance {
   float: right;
   padding-top: 15px;
@@ -131,6 +118,11 @@ body {
   background-color: #313A45;
 }
 
+.text-left {
+  text-align: left;
+}
+
+/* barve v modalu ter v tabeli*/
 .priliv {
   color: $priliv;
 }
@@ -139,6 +131,7 @@ body {
   color: $odliv;
 }
 
+/* Currently not used*/
 .footer {
     position: fixed !important;
     height: 50px;
@@ -146,25 +139,27 @@ body {
     width: 100%;
 }
 
-.modal-margin {
-  margin-top: 10px;
-}
-
-.margin-right20 {
-  margin-right: 20px;
-}
-
-//velikost checkboxov v modalu
+/* velikost checkboxov v modalu */
 .radio-inline, .checkbox-inline {
   padding-left: 50px;
   font-size: 20px;
   padding-bottom: 15px;
+  &.transaction{ 
+    padding-top: 15px;
+    font-size: 15px;
+  }
 }
 
-.padding-bot20{
-  padding-bottom: 20px;
+
+/* Dodatne informacije */
+.advanced-option{
+  margin-bottom: 20px !important;
+  a {
+    color: $navbar-default-bg;
+  }
 }
 
+/* stranski meni na velikih napravah */
 .left-menu {
   z-index: 99;
   margin-top: -20px;
@@ -173,33 +168,52 @@ body {
   height: 100%;
   background-color: $nav-left-bg;
   float: left;
+  a {
+      color: #ffffff;
+      &:hover{
+        //color: $nav-a-hover;
+        color: $nav-pills-active-link-hover-bg;
+      }
+    }
 }
 
-#leftMenu{
-  background-color: $nav-left-bg;
-
-}
-
-.search-margin-bot30{
-  margin-bottom: 30px;
-}
-
-
+/* gumb v levem meniju za dodajanje transakcije */
 .button-add{
   padding-bottom: 10px;
   padding-top: 10px;
-  border-bottom: 1px;
+  border-bottom: 2px;
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
   border-style: solid;
   border-color: #3a3a3a;
+  background-color: #3c4754;
 }
 
 .pointer{
   cursor: pointer;
 }
 
+/* MARGINI in PADDINGI*/
+
+.search-margin-bot30{
+  margin-bottom: 30px;
+}
+
+.margin-right20 {
+  margin-right: 20px;
+}
+
 .margin-content{
   margin-left: -4%;
 }
+
+.padding-bot20{
+  padding-bottom: 20px;
+}
+
+.modal-margin {
+  margin-top: 10px;
+}
+
+
