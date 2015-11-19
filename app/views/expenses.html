@@ -1,14 +1,31 @@
-<div class="col-12">
+<div class="container col-12">
 	<!-- SEARCH -->
-	<div class="col-md-8 col-lg-8 col-sm-12">
+  <div class="row">
+  	<div class="col-md-8 col-lg-8 col-sm-12">
         <div class="input-group">
             <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-search"></i></span>
             <input type="search" class="form-control" placeholder="Iskanje po izdatkih" ng-model-options="{ debounce: 500 }" />
         </div>
     </div>
 
+    <div class="input-group col-md-4 col-lg-4 col-sm-12">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Išči po... <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a ng-click="setSearch('all')">Vsem</a></li>
+          <li><a class="pointer"ng-click="setSearch('description')">Opisu</a></li>
+          <li><a ng-click="setSearch('date')">Datumu</a></li>
+          <li><a ng-click="setSearch('tag')">Oznaki</a></li>
+          <li><a ng-click="setSearch('type')">Tipu</a></li>
+        </ul>
+      </div><!-- /btn-group -->
+      <input type="text" class="form-control" aria-label="..." ng-model="search">
+  </div><!-- /input-group -->
+  </div>
     <!-- SEARCH CONTENT -->
-    <div class="container" ng-controller="IzdatkiController">
+    <div class="container" ng-controller="ExpensesController">
 
         
   <table class="table">

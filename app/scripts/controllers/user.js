@@ -6,7 +6,7 @@
 angular.module('eDenarnicaApp')
 	.controller('UserController', ['$scope', function($scope) {
 
-		// TODO GET USER
+		// TODO: GET USER
 		
 		// uporabnik
 		$scope.user = {
@@ -20,6 +20,11 @@ angular.module('eDenarnicaApp')
 		$scope.edit = false;
 
 		$scope.editUser = function() {
+    		$scope.edit = true;
+  		};
+
+  		/* posodobi uporabnika */
+  		$scope.updateUser = function() {
     		$scope.edit = true;
   		};
   	}]);

@@ -26,9 +26,9 @@ angular
       })
 
       .when('/izdatki', {
-        templateUrl: 'views/izdatki.html',
-        controller: 'IzdatkiController',
-        controllerAs: 'izdatki'
+        templateUrl: 'views/expenses.html',
+        controller: 'ExpensesController',
+        controllerAs: 'expenses'
       })
 
       .when('/profil', {
