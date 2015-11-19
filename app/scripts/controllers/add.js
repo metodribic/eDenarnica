@@ -8,7 +8,7 @@ angular.module('eDenarnicaApp')
 		//doadatne možnosti
 		$scope.advanced = false;
 		// objekt izdatek
-		$scope.izdatek = {
+		$scope.expense = {
 			type: 'odliv',
 			opis: '',
 			oznake: [],
@@ -16,8 +16,9 @@ angular.module('eDenarnicaApp')
 			datum: null 
 		};
 
-		$scope.dodajIzdatek = function(){
+		$scope.addExpenses = function(){
 			$scope.test ='test';
+			// TODO post
 		};
 }]);
 

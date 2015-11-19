@@ -169,7 +169,7 @@ body {
   z-index: 99;
   margin-top: -20px;
   position: fixed;
-  width: 230px;
+  width: 12%;
   height: 100%;
   background-color: $nav-left-bg;
   float: left;
@@ -198,4 +198,8 @@ body {
 
 .pointer{
   cursor: pointer;
+}
+
+.margin-content{
+  margin-left: -4%;
 }
