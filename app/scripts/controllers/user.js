@@ -17,6 +17,6 @@ angular.module('eDenarnicaApp')
 		$scope.edit = false;
 
 		$scope.editUser = function() {
-    		$scope.edit = !$scope.edit;
+    		$scope.edit = true;
   		};
   	}]);
