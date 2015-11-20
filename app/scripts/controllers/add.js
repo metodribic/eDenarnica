@@ -21,5 +21,16 @@ angular.module('eDenarnicaApp')
 			console.log($scope.expense);
 			// TODO post
 		};
+
+		// $scope.select= function(item) {
+	 //        $scope.selected = item; 
+	 //        console.log(item);
+		//  };
+
+		//  $scope.isActive = function(item) {
+		//  	console.log(item);
+
+	 //        return $scope.selected === item;
+		//  };
 }]);
 

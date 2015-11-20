@@ -1,80 +1,96 @@
 <div class="col-12" ng-controller="UserController">
   <div class="col-1">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-11">
-          <h2>Moj profil</h2> 
-        </div>
-        <div class="col-sm-1">
-          <button type="button" class="btn btn-default" ng-click="editUser()">
-            <i class="fa fa-pencil"></i> Uredi
-          </button>
-        </div>
+    <div class="row">
+      <div class="col-lg-11 col-xs-8">
+        <h2>Moj profil</h2> 
+      </div>
+      <div class="col-lg-1 col-xs-4">
+        <button type="button" class="btn btn-default btn-xs" ng-click="editUser()">
+          <i class="fa fa-pencil"></i> Uredi
+        </button>
       </div>
     </div>
   </div>
     
-  <div class="col-12">
-  <div class="jumbotron">
-    <div class="container">
-      <div class="row">
-      <div class="col-lg-4">
-        <a href="#" class="thumbnail">
-        <img src="images/user-avatar.png" alt="...">
-      </a>
+  <div class="col-11">
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-xs-12">
+            <a href="#" class="thumbnail">
+            <img src="images/user-avatar.png" alt="...">
+          </a>
 
-      
-
-      
-      </div>
-      <div class="col-lg-8">
-        <form class="form-horizontal">
-
-          <!-- INPUT IME -->
-          <div class="form-group">
-              <label for="inputIme" class="col-sm-3 text-left">Ime: </label>
-            <div class="col-sm-9">
-              <span ng-show="!edit" ng-bind="user.name" class="pull-left"></span>
-              <input type="text" class="form-control pull-left" id="inputIme" type="text" ng-model="user.name" ng-show="edit">
-            </div>
           </div>
+          <div class="col-lg-8 col-xs-12">
+            <form class="form-horizontal">
 
-          <!-- INPUT PRIIMEK -->
-          <div class="form-group">
-            <label for="labelPriimek" class="col-sm-3 text-left">Priimek: </label>
-            <div class="col-sm-9">
-              <span ng-show="!edit" ng-bind="user.surname" class="pull-left"></span>
-              <input type="text" class="form-control" id="priimek" type="text" ng-model="user.surname" ng-show="edit">
+              <!-- INPUT IME -->
+              <div class="form-group">
+                <label for="inputIme" class="col-xs-3 text-left">Ime: </label>
+                <div class="col-xs-9">
+                  <span ng-show="!edit" ng-bind="user.name" class="pull-left"></span>
+                  <input type="text" class="form-control pull-left" id="inputIme" type="text" ng-model="user.name" ng-show="edit">
+                </div>
+              </div>
+
+              <!-- INPUT PRIIMEK -->
+              <div class="form-group">
+                <label class="col-xs-3 text-left" for="labelPriimek" >Priimek: </label>
+                <div class="col-xs-9">
+                  <span ng-show="!edit" ng-bind="user.surname" class="pull-left"></span>
+                  <input type="text" class="form-control" id="priimek" type="text" ng-model="user.surname" ng-show="edit">
+                </div>
+              </div>
+
+              <!-- INPUT UPORABNIŠKO IME -->
+              <div class="form-group">
+                <label for="labelUsername" class="col-xs-3 text-left">Upor. ime: </label>
+                <div class="col-xs-9">
+                  <span ng-show="!edit" ng-bind="user.username" class="pull-left"></span>
+                  <input type="text" class="form-control" id="username" type="text" ng-model="user.username" ng-show="edit">
+                </div>
+              </div>
+
+              <!-- INPUT USERNAME -->
+              <div class="form-group">
+                <label for="labelEmail" class="col-xs-3 text-left">Email </label>
+                <div class="col-xs-9">
+                  <span ng-show="!edit" ng-bind="user.email" class="pull-left"></span>
+                  <input type="email" class="form-control" id="email" type="text" ng-model="user.email" ng-show="edit">
+                </div>
+              </div>
+            
+              <!-- STANJE NA RAČUNU -->
+              <div class="form-group">
+                <label for="labelBalance" class="col-xs-3 text-left">Stanje: </label>
+                <div class="col-xs-9">
+                  <span ng-bind="user.balance" class="pull-left"></span><span class="pull-left">€</span>
+                </div>
+              </div>
+
+              <!-- INPUT SAVINGS GOAL -->
+              <div class="form-group">
+                <label for="labelSavings" class="col-xs-3 text-left">Varčevanje: </label>
+                <div class="col-xs-9">
+                  <span ng-show="!edit" ng-bind="user.savings" class="pull-left"></span><span class="pull-left" ng-show="!edit">€/mesec</span> 
+                  <input type="text" class="form-control" id="savings" type="number" ng-model="user.savings" ng-show="edit">
+                </div>
+              </div>
+
+            </form>
+
+            <!-- Buttons for saving or canceling edit user -->
+            <div class="modal-footer" ng-show="edit">
+                <button type="button" class="btn btn-default" ng-click="edit=false">Prekliči</button>
+                <button type="button" class="btn btn-primary btn-default" ng-click="updateUser()">Shrani!</button>
             </div>
-          </div>
+          </div><!-- end col-lg-8-->
+        </div><!-- end row -->
+      </div><!-- end container -->
+    </div><!-- end jumbotron -->
 
-          <!-- INPUT UPORABNIŠKO IME -->
-          <div class="form-group">
-            <label for="labelUsername" class="col-sm-3 text-left">Upor. ime: </label>
-            <div class="col-sm-9">
-              <span ng-show="!edit" ng-bind="user.username" class="pull-left"></span>
-              <input type="text" class="form-control" id="username" type="text" ng-model="user.username" ng-show="edit">
-            </div>
-          </div>
+    
 
-          <!-- INPUT USERNAME -->
-          <div class="form-group">
-            <label for="labelUsername" class="col-sm-3 text-left">Email </label>
-            <div class="col-sm-9">
-              <span ng-show="!edit" ng-bind="user.email" class="pull-left"></span>
-              <input type="email" class="form-control" id="email" type="text" ng-model="user.email" ng-show="edit">
-            </div>
-          </div>
-        </form>
-
-        <div class="modal-footer" ng-show="edit">
-            <button type="button" class="btn btn-default" ng-click="edit=false">Prekliči</button>
-            <button type="button" class="btn btn-primary" ng-click="updateUser()">Shrani!</button>
-        </div>
-
-        </div><!-- end col-lg-8-->
-      </div><!-- end row -->
-    </div><!-- end container -->
-  </div><!-- end jumbotron -->
-  </div>
+  </div><!-- end col-11 -->
 </div><!-- end col-12 -->

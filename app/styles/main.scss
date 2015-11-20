@@ -1,19 +1,26 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-$navbar-default-bg: #339966;
-$navbar-default-link-color: #ffffff;
-$navbar-default-link-active-color: #add6c1;
+/* main app color */
+$main-color: #339966;
+$white: #ffffff;
 $priliv: #99CC66;
 $odliv: #993333;
+
+/* overide defult values */
+$navbar-default-bg: $main-color;
+$navbar-default-link-color: #ffffff;
+$navbar-default-link-active-color: #add6c1;
+
 $nav-left-bg: #2B333D;
 $nav-a-hover: #add6c1;
-$nav-pills-active-link-hover-bg:#339966;
+$nav-pills-active-link-hover-bg: $main-color;
 $nav-pills-border-radius: 0px;
-/* a tag color */
-//$link-color: #ffffff;
-//$link-hover-color: #339966;
 
+$pagination-active-bg: $main-color;
+$pagination-active-border: $main-color;
+$pagination-color: $pagination-active-bg;
 
-
+$btn-primary-bg: $main-color;
+$btn-primary-border: $main-color;
 
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
@@ -52,13 +59,6 @@ body {
   }
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
 .container-narrow > hr {
   margin: 30px 0;
 }
@@ -67,11 +67,12 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-
+/*
   .btn {
     font-size: 21px;
     padding: 14px 24px;
   }
+  */
 }
 
 /* Supporting marketing content */
@@ -169,15 +170,19 @@ body {
   background-color: $nav-left-bg;
   float: left;
   a {
-      color: #ffffff;
+      color: $white;
+
       &:hover{
-        //color: $nav-a-hover;
+        color: $nav-pills-active-link-hover-bg;
+      }
+
+      &:focus {
         color: $nav-pills-active-link-hover-bg;
       }
     }
 }
 
-/* gumb v levem meniju za dodajanje transakcije */
+/* gumb v levem meniju za dodajanje transakcije - prvi*/
 .button-add{
   padding-bottom: 10px;
   padding-top: 10px;
@@ -193,6 +198,13 @@ body {
 .pointer{
   cursor: pointer;
 }
+
+
+/* LOGIN */
+.login{
+  background-image: url("../images/login.jpg");
+}
+
 
 /* MARGINI in PADDINGI*/
 
@@ -214,6 +226,10 @@ body {
 
 .modal-margin {
   margin-top: 10px;
+}
+
+.margin-top50 {
+  margin-top:50%;
 }
 
 

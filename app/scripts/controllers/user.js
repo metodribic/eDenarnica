@@ -8,23 +8,26 @@ angular.module('eDenarnicaApp')
 
 		// TODO: GET USER
 		
-		// uporabnik
+		/* Objekt uporabnik */
 		$scope.user = {
 			name: 'Metod',
 			surname: 'Ribič',
 			username: 'metod',
-			email: 'metod.ribic@gmail.com'
+			email: 'metod.ribic@gmail.com',
+			balance: 15.346,
+			savings: 350
 		};
 
-		// Edit user
+		/* Edit user */
 		$scope.edit = false;
 
+		/* dovoli uporabniku da spremeni svoje osebne podatke */
 		$scope.editUser = function() {
     		$scope.edit = true;
   		};
 
   		/* posodobi uporabnika */
   		$scope.updateUser = function() {
-    		$scope.edit = true;
+    		$scope.edit = false;
   		};
   	}]);

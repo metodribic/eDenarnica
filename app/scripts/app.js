@@ -36,8 +36,17 @@ angular
         controller: 'UserController',
         controllerAs: 'user'
       })
-
+/*
+      .when('/prijava', {
+        templateUrl: 'login.html',
+        controller: 'LoginController',
+        controllerAs: 'login'
+      })
+*/
       .otherwise({
         redirectTo: '/'
       });
+
+      // use the HTML5 History API
+      //$locationProvider.html5Mode(true);
   });
