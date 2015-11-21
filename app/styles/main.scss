@@ -202,10 +202,30 @@ body {
 
 /* LOGIN */
 .login{
-  background-image: url("../images/login.jpg");
+  background-image: url("../images/coins.jpg");
+  .header {
+    margin: 0 auto;
+  }
+
+  .columns {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px 20px 20px;
+  }
 }
 
+.login-box {
+    background-color: $white;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: $white;
+    border-left: 1px solid #3a3a3a;
+    border-width: 1px 0px;
+}
 
+.login-btn {
+  width: 100%;
+}
 /* MARGINI in PADDINGI*/
 
 .search-margin-bot30{

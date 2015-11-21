@@ -1,0 +1,99 @@
+\pdfminorversion=5 
+\pdfcompresslevel=9
+\pdfobjcompresslevel=2
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+\usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
+\usepackage{amsmath} % Required for some math elements
+\usepackage{fullpage} % changes the margin
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{1. Seminarska naloga \\ Dvosmerni linearni seznam s kazalci \\ APS1} % Title
+
+\author{Metod \textsc{RIBIČ}, 63110173} % Author name
+
+\date{23.11.2014} % Date for the report
+
+\begin{document}
+
+\maketitle % Insert the title, author and date
+
+% If you wish to include an abstract, uncomment the lines below
+% \begin{abstract}
+% Abstract text
+% \end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section*{Uvod}
+
+V nalogi je bilo potrebno realizirati dvosmerni seznam s kazalci, brez uporabe že definiranih javanskih seznamov. Namen je bil spoznati uporabo ter zgradbo seznamov ter njihove časovne zahtevnosti.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Osnovne operacije za delo s seznamom}
+
+
+V prvem delu naloge je bilo potrebno realizirati operacije za delo s seznamom in sicer
+
+\begin{enumerate}
+  \item Dodaj\textbackslash odstrani lokomotivo
+  \item Dodaj\textbackslash odstrani vagon
+  \item Dodaj\textbackslash odstrani tovor
+\end{enumerate}
+Pri vseh točkah, sem si kot oporo pomagal s strukturo enosmernega seznama s kazalci, ki smo ga implementirali na vajah.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+
+\section{Gradnja kompozicije}
+
+Pri drugi nalogi sem za branje datoteke uporabil razred BufferedReader, ki smo ga prav tako uporabljali na vajah. Naloga mi ni predstavljala prevelikega izziva, saj je bilo potrebno le brati iz datoteke po vrsti, ter uporabiti funkcije, ki smo jih definirali v prejšni nalogi.
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3
+%----------------------------------------------------------------------------------------
+\section{Skladišče}
+
+Pri polnjenju kompozicije iz skladišča, pri čemer lahko tekočino razdelimo v več vagonov, sem se lotil problema postopoma. Najprej sem elemente skladišča dodal v nov seznam, nato sem v zanki šel čez vse tovore v skladišču in za vsak posamezen tovor iskal primeren vagon. Ko sem ugotovil, če je tovor enakega tipa kot vagon, sem problem ponovno ločil na dva dela in sicer na tekoči tovor in kosovni tovor. Pri kosovnem sem preveril če je prostor za celega in če je bil, sem ga dodal, ter se pomaknil an naslednji tovor v skladišču. Pri tekočini pa sem poskusil, vstaviti ceu element, a če je presegel volumen vagona, sem ustvaril nov tovor in ga dodal za tovor, ki sem ga trenutno pregledoval tako, da sem v naslednji iteraciji ponovno polnil preostalo tekočino.\\
+\begin{center}
+    \textsc{Časovna zahtevnost:}
+    $O({m + m*(n*n)})$\vspace{5mm}
+    
+    \textsc{Obrazložitev}: \emph{m = št. tovorov v skladišču in n = št. vagonov v kompoziciji}\\
+    \begin{enumerate}
+    	\item Polnjenje skladišča: $O({m})$
+        \item Čez vsak tovor v skladišču: $O({m})$
+        \begin{enumerate}
+        	\item Čez vsak vagon: $O({n})$
+            \begin{enumerate}
+        		\item Vsak tovor vstavi v točno določen vagon: $O({n})$
+        	\end{enumerate}
+        \item Ostale operacije so $O({1})$ zato se v izračunu ne upoštevajo
+        \end{enumerate}
+    \end{enumerate}
+ \end{center}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 4
+%----------------------------------------------------------------------------------------
+
+
+
+
+\end{document}

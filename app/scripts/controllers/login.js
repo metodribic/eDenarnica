@@ -4,10 +4,13 @@
  * Controller for editin user settings
  */
 angular.module('eDenarnicaApp')
-	.controller('LoginController', ['$scope', '$location', function($scope, $location) {
+	.controller('LoginController', ['$scope', '$rootScope', function($scope, $rootScope) {
 
 		// TODO: GET USER
-		
+
+		$rootScope.loggedUser = null;
+
+		$scope.register = false;
 		/* Objekt uporabnik */
 		$scope.user = {
 			name: 'Metod',
@@ -18,11 +21,17 @@ angular.module('eDenarnicaApp')
 			savings: 350
 		};
 
-		$scope.test = 'test';
 
-		$scope.login = function(){
-			if(true){
-				$location.path( '#/' );
-			}
+		$scope.registerUser = function(){
+			$scope.register = true;
+		};
+
+		$scope.registerCancel = function(){
+			$scope.register = false;
+		};
+
+		$scope.login = function() {
+			$rootScope.loggedUser = $scope.user;
+			console.log($rootScope.loggedUser);
 		};
   	}]);

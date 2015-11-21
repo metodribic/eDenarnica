@@ -19,6 +19,13 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
+
+      .when('/vpis', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginController',
+        controllerAs: 'login'
+      })
+
       .when('/', {
         templateUrl: 'views/latest.html',
         controller: 'LatestController',
@@ -36,17 +43,7 @@ angular
         controller: 'UserController',
         controllerAs: 'user'
       })
-/*
-      .when('/prijava', {
-        templateUrl: 'login.html',
-        controller: 'LoginController',
-        controllerAs: 'login'
-      })
-*/
-      .otherwise({
-        redirectTo: '/'
-      });
 
-      // use the HTML5 History API
-      //$locationProvider.html5Mode(true);
+      .otherwise({ redirectTo: '/' });
+
   });

@@ -1,0 +1,76 @@
+<div class="login" ng-controller="LoginController">
+    <div class="columns">
+      <div class="row">
+
+            <div class="col-md-6">
+                <h2>Dobrodošli v eDenarnici</h2>
+
+                <p>
+                  <center><i>»Vse se začne, ter konča pri denarju«</i></center>
+                </p>
+
+                <p>
+                    Se vam je že zgodilo da ste bili en teden pred plačo brez denarja na bančnem računu, v denarnici pa imate samo stare račune, ki jih hranite, zato da boste lahko vodili evidenco koliko ste zapravili? Se vam je ob pogledu na položnico za elektriko kar zmegligo pred očmi, pa nikakor niste našli položnice od prejšnjega meseca, da bi primerjali znesek? Vam nikoli do poletja ne uspe privarčevati dovolj denarja, da bi lahko odšli na oddih brez skrbi ter konstantega preštevanja denarja v denarnici?
+
+                </p>
+
+
+            </div>
+            <div class="col-md-6">
+                <div class="login-box">
+                    <form class="modal-margin" role="form">
+                        <!-- username -->
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Uporabniško ime" required>
+                        </div>
+
+                        <!-- name (register)-->
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ime" required ng-show="register">
+                        </div>
+
+                        <!-- surname (register)-->
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Priimek" required ng-show="register">
+                        </div>
+
+                        <!-- email (register)-->
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" required ng-show="register">
+                        </div>
+
+                        <!-- password -->
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Geslo" required>
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-primary login-btn" ng-show="!register" ng-click="login()">Vpis</button>
+                        <button type="submit" class="btn btn-primary login-btn" ng-show="register" ng-click="registerCancel()">Registeraj</button>
+
+                        <a href="#" class="modal-margin pointer" ng-show="!register">
+                            <small>Ste pozabili geslo?</small>
+                        </a>
+
+                        <p class="text-muted text-center" ng-show="!register">
+                            <small>Še nimate računa? </small>
+                        </p>
+                        <p class="text-muted text-center" ng-show="register">
+                            <small>Že imate račun? </small>
+                        </p>
+                        <a class="btn btn-default btn-sm pointer login-btn" ng-click="registerUser()" ng-show="!register">
+                          Ustvarite nov račun! 
+                        </a>
+
+                        <a class="btn btn-default btn-sm pointer login-btn" ng-click="registerCancel()" ng-show="register">
+                          Vpišite se!
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
