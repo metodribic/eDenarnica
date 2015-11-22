@@ -3,7 +3,7 @@
 /**
  * Controller for editin user settings
  */
-angular.module('eDenarnicaApp')
+angular.module('eDenarnicaApp', [])
 	.controller('IndexController', ['$scope', '$location','$rootScope', function($scope, $location, $rootScope) {
 
 		// TODO: GET USER
