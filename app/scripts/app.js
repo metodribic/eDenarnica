@@ -17,7 +17,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'uiGmapgoogle-maps',
-    'webcam'
+    'webcam',
   ])
   .config(function ($routeProvider) {
     $routeProvider
