@@ -30,4 +30,6 @@ angular.module('eDenarnicaApp')
   		$scope.updateUser = function() {
     		$scope.edit = false;
   		};
+
+
   	}]);

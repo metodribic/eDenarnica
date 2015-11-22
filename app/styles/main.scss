@@ -151,7 +151,12 @@ body {
   }
 }
 
-
+/* required input error */
+/*
+input:required {
+  border: 1px solid $odliv;p
+}
+*/
 /* Dodatne informacije */
 .advanced-option{
   margin-bottom: 20px !important;
@@ -199,6 +204,7 @@ body {
   cursor: pointer;
 }
 
+.angular-google-map-container { height: 200px; }
 
 /* LOGIN */
 .login{

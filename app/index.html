@@ -6,9 +6,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="icon" type="image/ico" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
+
     <!-- font awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- google map -->
+    <script src='//maps.googleapis.com/maps/api/js'></script>
+
   </head>
   <body ng-app="eDenarnicaApp">
   
@@ -49,6 +53,7 @@
 
       <!-- LEFT MENU -->  
       <div class="col-lg-2  pull-left">
+      <!-- <aside ng-include="left-menu.html"></aside>-->
         <ul class="nav nav-pills nav-stacked left-menu hidden-xs hidden-sm hidden-md">
           <li class="button-add">
             <a ng-href="#/" data-toggle="modal" data-target="#addModal" >
@@ -93,11 +98,11 @@
               </center>
 
               <!-- INPUT OPIS -->
-              <form class="form-horizontal">
+              <form class="form-horizontal" role="form" data-toggle="validator">
                 <div class="form-group">
                   <label for="inputOpis" class="col-sm-2 control-label">Opis</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="opis" type="text" placeholder="npr. Položnica za elektriko" ng-model="expense.about">
+                    <input type="text" class="form-control" id="opis" type="text" placeholder="npr. Položnica za elektriko" ng-model="expense.about" data-error="Opis/naziv transakcije je obvezno polje!" required autofocus>
                   </div>
                 </div>
                 <!-- INPUT OZNAKE -->
@@ -112,15 +117,16 @@
                 <div class="form-group">
                   <label for="labelKolicina" class="col-sm-2 control-label">Količina: </label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="kolicina" type="text" placeholder="npr. 204.45" ng-model="expense.amount">
+                    <input type="text" class="form-control" id="kolicina" type="text" placeholder="npr. 204.45" ng-model="expense.amount" required pattern="\d+\.?\d*" data-error="Dovoljene so samo števke ter decimalna pika!"/>
                   </div>
                 </div>
 
-                <!-- INPUT KOLIČINA -->
+                <!-- INPUT DATE -->
                 <div class="form-group">
                   <label for="labelDatum" class="col-sm-2 control-label">Datum: </label>
                   <div class="col-sm-10">
-                    <input class="form-control" id="datum" type="date" ng-model="expense.date" placeholder="dd/MM//YYYY">
+                    <input class="form-control" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" id="datum" type="date" ng-model="expense.date" placeholder="dd/MM//YYYY" data-error="Vpišite veljaven datum!"required>
+
                   </div>
                 </div>
 
@@ -138,6 +144,7 @@
                     </label>
                   </div>
                 </div>
+
               </form>
 
               <!-- DODATNO -->
@@ -156,6 +163,16 @@
                     </div>
                   </div>
 
+                  <div class="form-group">
+                    <label for="podrobnosti" class="col-sm-2 control-label">Lokacija transakcije: </label>
+                    <div class="col-sm-10">
+                      <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+                    </div>
+                  </div>
+
+
+
+
                 </form>
               </div>
           </div>
@@ -164,7 +181,7 @@
           <!-- MODAL FOOTER -->
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Prekliči</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addExpenses()">Shrani!</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addExpenses()">Shrani!</button>
           </div>
         </div>
       </div>
@@ -190,6 +207,8 @@
     <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/webcam/dist/webcam.min.js"></script>
+    <script src="bower_components/bootstrap-validator/dist/validator.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

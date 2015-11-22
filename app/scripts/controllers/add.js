@@ -5,6 +5,7 @@
  */
 angular.module('eDenarnicaApp')
 	.controller('AddController', ['$scope', function($scope) {
+		$scope.map = { center: { latitude: 46.0569465, longitude: 14.5057515 }, zoom: 8 };
 		//doadatne možnosti
 		$scope.advanced = false;
 		// objekt izdatek
@@ -19,18 +20,27 @@ angular.module('eDenarnicaApp')
 
 		$scope.addExpenses = function(){
 			console.log($scope.expense);
+			 $scope.expense = {
+				type: 'odliv',
+				description: '',
+				tags: [],
+				amount: null,
+				date: null,
+				transaction: 'cash'
+			};
 			// TODO post
 		};
 
-		// $scope.select= function(item) {
-	 //        $scope.selected = item; 
-	 //        console.log(item);
-		//  };
+		$scope.validateDate= function(date) {
+			var dateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
 
-		//  $scope.isActive = function(item) {
-		//  	console.log(item);
+    		if (dateRegex.test(date.value) === false) {
+    			return false;
+			}
+			else{
+				return true;
+			} 
+		};
 
-	 //        return $scope.selected === item;
-		//  };
 }]);
 
