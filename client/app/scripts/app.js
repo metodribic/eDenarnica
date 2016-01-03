@@ -21,6 +21,7 @@ angular
     'ui.router'
   ])
   .config(['$stateProvider', function($stateProvider, $urlRouterProvider) {
+
     $stateProvider
       .state('user', {
         url: '/profil',
@@ -30,7 +31,7 @@ angular
       })
 
      .state('home', {
-        url:'/',
+        url:'',
         templateUrl: 'views/latest.html',
         controller: 'LatestController',
         authenticate: true
@@ -43,7 +44,14 @@ angular
         authenticate: true
       })
 
-     //$urlRouterProvider.otherwise( '/' );
+     .state('login', {
+        url:'/vpis',
+        templateUrl: 'views/login.html',
+        controller: 'LoginController',
+        authenticate: false
+      })
+
+     //$urlRouterProvider.otherwise("/state1");
  }]);
 
 

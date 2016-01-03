@@ -8,7 +8,7 @@ angular.module('eDenarnicaApp')
 		$scope.user = {};
 		User.findById({id:'567944b594c4658c027808fd'}).$promise.then(function(response){
 			$scope.user = response;
-			console.log($scope.user);
+			//console.log($scope.user);
 		});
 		
 		/*

@@ -18,10 +18,10 @@
             </div>
             <div class="col-md-6">
                 <div class="login-box">
-                    <form class="modal-margin" role="form">
+                    <form class="modal-margin" role="form" novalidate>
                         <!-- username -->
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Uporabniško ime" required>
+                            <input type="text" class="form-control" placeholder="Uporabniško ime" required ng-model="credentials.username">
                         </div>
 
                         <!-- name (register)-->
@@ -41,12 +41,12 @@
 
                         <!-- password -->
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Geslo" required>
+                            <input type="password" class="form-control" placeholder="Geslo" required ng-model="credentials.password">
                         </div>
 
 
 
-                        <button type="submit" class="btn btn-primary login-btn" ng-show="!register" ng-click="login()">Vpis</button>
+                        <button type="submit" class="btn btn-primary login-btn" ng-show="!register" ng-click="login(credentials)">Vpis</button>
                         <button type="submit" class="btn btn-primary login-btn" ng-show="register" ng-click="registerCancel()">Registeraj</button>
 
                         <a href="#" class="modal-margin pointer" ng-show="!register">

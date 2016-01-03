@@ -8,6 +8,11 @@ angular.module('eDenarnicaApp')
 
 		// TODO: GET USER
 
+		$scope.credentials = {
+		    username: '',
+		    password: ''
+		};
+
 		$rootScope.loggedUser = null;
 
 		$scope.register = false;
@@ -30,8 +35,7 @@ angular.module('eDenarnicaApp')
 			$scope.register = false;
 		};
 
-		$scope.login = function() {
-			$rootScope.loggedUser = $scope.user;
-			console.log($rootScope.loggedUser);
+		$scope.login = function(credentials) {
+			console.log(credentials);
 		};
   	}]);
