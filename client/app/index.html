@@ -46,9 +46,9 @@
 
             <ul class="nav navbar-nav hidden-lg">
               <li class="active"><a ng-href="#/" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus margin-right20"></i>&nbsp;DODAJ</a></li>
-              <li><a href="#/"><i class="fa fa-home margin-right20"></i>&nbsp;Domov</a></li>
-              <li><a ng-href="#/izdatki"><i class="fa fa-line-chart margin-right20"></i>&nbsp;Zgodovina</a></li>
-              <li><a ng-href="#/profil"><i class="fa fa-user margin-right20"></i>&nbsp;Profil</a></li> 
+              <li><a ui-sref="home"><i class="fa fa-home margin-right20"></i>&nbsp;Domov</a></li>
+              <li><a ui-sref="expenses"><i class="fa fa-line-chart margin-right20"></i>&nbsp;Zgodovina</a></li>
+              <li><a ui-sref="user"><i class="fa fa-user margin-right20"></i>&nbsp;Profil</a></li> 
             </ul>
 
             <span class="balance">Stanje: 15.346 €</span>
@@ -66,18 +66,18 @@
       <!-- <aside ng-include="left-menu.html"></aside>-->
         <ul class="nav nav-pills nav-stacked left-menu hidden-xs hidden-sm hidden-md">
           <li class="button-add">
-            <a ng-href="#/" data-toggle="modal" data-target="#addModal" >
+            <a ui-sref="home" data-toggle="modal" data-target="#addModal" >
             <i class="fa fa-plus margin-right20"></i>&nbsp;DODAJ</a>
           </li>
-          <li><a href="#/"><i class="fa fa-home margin-right20"></i>&nbsp;Domov</a></li>
-          <li><a ng-href="#/izdatki"><i class="fa fa-line-chart margin-right20"></i>&nbsp;Zgodovina</a></li>
-          <li><a ng-href="#/profil"><i class="fa fa-user margin-right20"></i>&nbsp;Profil</a></li>
+          <li><a href="/"><i class="fa fa-home margin-right20"></i>&nbsp;Domov</a></li>
+          <li><a ui-sref="expenses"><i class="fa fa-line-chart margin-right20"></i>&nbsp;Zgodovina</a></li>
+          <li><a ui-sref="user"><i class="fa fa-user margin-right20"></i>&nbsp;Profil</a></li>
         </ul>
       </div>
       <!-- CONTENT -->
       <div class="col-xs-12 col-sm-2 col-md-12 col-lg-10 margin-content">
         <div class="container">
-          <div ng-view=""></div>
+          <div ui-view=""></div>
         </div>
       </div> 
 
@@ -218,6 +218,7 @@
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <script src="bower_components/bootstrap-validator/dist/validator.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

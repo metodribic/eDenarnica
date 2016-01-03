@@ -18,8 +18,35 @@ angular
     'ngSanitize',
     'ngTouch',
     'uiGmapgoogle-maps',
-    
+    'ui.router'
+
   ])
+  .config(['$stateProvider', function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('user', {
+        url: '/profil',
+        templateUrl: 'views/user.html',
+        controller: 'UserController',
+        authenticate: true
+      })
+
+     .state('home', {
+        url:'/',
+        templateUrl: 'views/latest.html',
+        controller: 'LatestController',
+        authenticate: true
+      })
+
+     .state('expenses', {
+        url:'/izdatki',
+        templateUrl: 'views/expenses.html',
+        controller: 'ExpensesController',
+        authenticate: true
+      })
+ }]);
+
+
+  /*
   .config(function ($routeProvider) {
     $routeProvider
 
@@ -48,5 +75,9 @@ angular
       })
 
       .otherwise({ redirectTo: '/' });
+      
 
   });
+
+*/
+

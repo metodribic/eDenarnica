@@ -4,8 +4,9 @@
  * Controller for editin user settings
  */
 angular.module('eDenarnicaApp')
-	.controller('UserController', ['$scope', function($scope) {
+	.controller('UserController', ['$scope', 'Users', function($scope, Users) {
 
+		
 
 		/* Objekt uporabnik */
 		$scope.user = {
