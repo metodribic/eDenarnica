@@ -36,7 +36,7 @@ angular
       })
 
      .state('home', {
-        url:'',
+        url:'/domov',
         templateUrl: 'views/latest.html',
         controller: 'LatestController',
         data: {
@@ -54,7 +54,7 @@ angular
       })
 
      .state('login', {
-        url:'/vpis',
+        url:'',
         templateUrl: 'views/login.html',
         controller: 'LoginController',
         data: {
@@ -79,32 +79,43 @@ angular
   })
 
 
-  .factory('AuthService', function ($http, Session) {
+  .factory('AuthService', function ($http, Session, $rootScope, AUTH_EVENTS, User) {
       var authService = {};
      
       authService.login = function (credentials) {
+        return User.login(credentials).$promise.then(function(response){
+          console.log(response);
+          $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+          Session.create(response.id, response.user.id, response.user.role);
+          $rootScope.user = response.user;
+          return response.user
+        })
+        /*
         return $http
           .post('api/users/login', credentials)
           .then(function (response) {
+              // broadast da je login uspel 
+              $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
               Session.create(response.data.id, 
-                           response.data.user.id,
-                           response.data.user.role);
-              return res.data.user;
+                             response.data.userId);
+              return response.data.userId;
           });
+  */
       };
      
+      /* preveri če obstaja userId */
       authService.isAuthenticated = function () {
         return !!Session.userId;
-        //return '76349r82ui3joh';
       };
      
       authService.isAuthorized = function (authorizedRoles) {
         if (!angular.isArray(authorizedRoles)) {
           authorizedRoles = [authorizedRoles];
         }
-        //if(authorizedRoles.indexOf('*') !== -1)
-        //  return '567944b594c4658c027808fd';
+
+        /* preveri če je loginan in ima pravice za dostop do te strani */
         return (authService.isAuthenticated() && authorizedRoles.indexOf(Session.userRole) !== -1);
+        //return (authService.isAuthenticated());
       };
      
       return authService;
@@ -112,8 +123,8 @@ angular
 
 
   .service('Session', function () {
-      this.create = function (sessionId, userId, userRole) {
-        this.id = sessionId;
+      this.create = function (token, userId, userRole) {
+        this.id = token;
         this.userId = userId;
         this.userRole = userRole;
       };
@@ -150,6 +161,10 @@ angular
       /* v primeru da prožimo AUTH_EVENTS.notAuthenticated, reddircetamo na login state*/
       $rootScope.$on(AUTH_EVENTS.notAuthenticated, function(){
         $state.go('login');
+      })
+
+      $rootScope.$on(AUTH_EVENTS.loginSuccess, function(){
+        $state.go('home');
       })
     });
   });

@@ -59,29 +59,21 @@
 
     <!-- ########## PAGE CONTENT ########## -->
 
+
     <div class="row">
 
       <!-- LEFT MENU -->  
-      <div class="col-lg-2  pull-left">
-      <!-- <aside ng-include="left-menu.html"></aside>-->
-        <ul class="nav nav-pills nav-stacked left-menu hidden-xs hidden-sm hidden-md">
-          <li class="button-add">
-            <a ui-sref="home" data-toggle="modal" data-target="#addModal" >
-            <i class="fa fa-plus margin-right20"></i>&nbsp;DODAJ</a>
-          </li>
-          <li><a href="/"><i class="fa fa-home margin-right20"></i>&nbsp;Domov</a></li>
-          <li><a ui-sref="expenses"><i class="fa fa-line-chart margin-right20"></i>&nbsp;Zgodovina</a></li>
-          <li><a ui-sref="user"><i class="fa fa-user margin-right20"></i>&nbsp;Profil</a></li>
-        </ul>
-      </div>
+      
       <!-- CONTENT -->
-      <div class="col-xs-12 col-sm-2 col-md-12 col-lg-10 margin-content">
-        <div class="container">
+   <!--   <div class="col-12 margin-content"> -->
+       <div class="col-12" style="height: 100%">
+
           <div ui-view=""></div>
-        </div>
+
       </div> 
 
     </div><!-- end row-->
+
     <!-- ########## END PAGE CONTENT ########## -->
 
 

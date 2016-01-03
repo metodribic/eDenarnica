@@ -1,4 +1,18 @@
-<div class="container col-12">
+<!-- LEFT MENU -->
+<div class="col-lg-2  pull-left">
+  <ul class="nav nav-pills nav-stacked left-menu hidden-xs hidden-sm hidden-md">
+    <li class="button-add">
+      <a ui-sref="home" data-toggle="modal" data-target="#addModal" >
+      <i class="fa fa-plus margin-right20"></i>&nbsp;DODAJ</a>
+    </li>
+    <li><a ui-sref="home"><i class="fa fa-home margin-right20"></i>&nbsp;Domov</a></li>
+    <li><a ui-sref="expenses"><i class="fa fa-line-chart margin-right20"></i>&nbsp;Zgodovina</a></li>
+    <li><a ui-sref="user"><i class="fa fa-user margin-right20"></i>&nbsp;Profil</a></li>
+  </ul>
+</div>
+
+<!-- VIEW CONTENT -->
+<div class="container col-lg-10 col-md-12 col-sm-12 col-xs-12" ng-controller="ExpensesController">
 	<!-- SEARCH -->
   <div class="row">
   	<div class="col-md-8 col-lg-8 col-sm-12">

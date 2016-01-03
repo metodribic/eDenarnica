@@ -16,7 +16,21 @@ ds.automigrate('user', function(err) {
       tags: [],
       password: 'p4ssw0rd',
       createdAt: new Date(),
-      lastModifiedAt: new Date()
+      lastModifiedAt: new Date(),
+      role: "user"
+    },
+    {
+      email: 'admin@gmail.com',
+      firstname: 'admin',
+      lastname: 'admin',
+      username: "admin",
+      balance: 2454,
+      savings: 0,
+      tags: [],
+      password: 'admin',
+      createdAt: new Date(),
+      lastModifiedAt: new Date(),
+      role: "admin"
     }
   ];
   var count = accounts.length;

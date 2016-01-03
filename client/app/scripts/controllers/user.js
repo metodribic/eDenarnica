@@ -4,30 +4,10 @@
  * Controller for editin user settings
  */
 angular.module('eDenarnicaApp')
-	.controller('UserController', ['$scope', '$state', 'User', function($scope, $state, User) {
-		$scope.user = {};
-		User.findById({id:'567944b594c4658c027808fd'}).$promise.then(function(response){
-			$scope.user = response;
-			//console.log($scope.user);
-		});
+	.controller('UserController', ['$scope', '$state', 'User', '$rootScope', function($scope, $state, User, $rootScope) {
 		
-		/*
-		var User = $resource('api/users/:userId', {userId:'@id'});
-		User.get({userId:'567944b594c4658c027808fd'}, function(user) {
-		  console.log('test');
-		});
-		*/
-		/* Objekt uporabnik */
-		/*
-		$scope.user = {
-			name: 'Metod',
-			surname: 'Ribič',
-			username: 'metod',
-			email: 'metod.ribic@gmail.com',
-			balance: 15.346,
-			savings: 350
-		};
-		*/
+		/* pridobi uporabnika iz rootScopa, ki se nastavi pri loginu */
+		$scope.user = $rootScope.user;
 
 		/* Edit user */
 		$scope.edit = false;

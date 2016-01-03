@@ -12,4 +12,11 @@ angular.module('eDenarnicaApp', [])
         this.userId = null;
         this.userRole = null;
       };
+
+      this.get = function(){
+        return {
+          userId: this.userId;
+          userToken: this.id;
+        }
+      };
   });
