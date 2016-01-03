@@ -19,7 +19,6 @@ angular
     'ngTouch',
     'uiGmapgoogle-maps',
     'ui.router'
-
   ])
   .config(['$stateProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -43,6 +42,8 @@ angular
         controller: 'ExpensesController',
         authenticate: true
       })
+
+     //$urlRouterProvider.otherwise( '/' );
  }]);
 
 
