@@ -26,6 +26,19 @@
       </tr>
     </thead>
 
+
+    <tbody>
+      <tr ng-repeat="event in latest">
+        <td>{{ event.description }}</td>
+        <td>{{ event.created }}</td>
+        <td>{{ event.tags.toString() }}</td>
+        <td>{{ event.type }}</td>
+        <td class="odliv" ng-show="event.type == 'odliv'">-{{ event.amount }}</td>
+        <td class="priliv" ng-show="event.type == 'priliv'">+{{ event.amount }}</td>
+      </tr>
+    </tbody>
+
+
     <tfoot>
       <tr style="width:100%">
         <td></td>
@@ -36,76 +49,5 @@
       </tr>
     </tfoot>
 
-    <tbody>
-      <tr>
-        <td>Nakup 0</td>
-        <td>1.1.2016</td>
-        <td>Elektrika</td>
-        <td>Odliv</td>
-        <td class="odliv">-147.76 €</td>
-        
-      </tr>
-      <tr>
-        <td>Nakup 12</td>
-        <td>12.11.2015</td>
-        <td>Avto</td>
-        <td>Odliv</td>
-        <td class="odliv">-13.47 €</td>
-        
-      </tr>
-      <tr>
-        <td>Plača marec</td>
-        <td>12.11.2015</td>
-        <td>Plača</td>
-        <td>Priliv</td>
-        <td class="priliv">+1780.97 €</td>
-      </tr>
-      <tr>
-        <td>Nakup 0</td>
-        <td>12.11.2015</td>
-        <td>Elektrika</td>
-        <td>Odliv</td>
-        <td class="odliv">-147.76 €</td>
-        
-      </tr>
-      <tr>
-        <td>Nakup 12</td>
-        <td>12.11.2015</td>
-        <td>Avto</td>
-        <td>Odliv</td>
-        <td class="odliv">-13.47 €</td>
-        
-      </tr>
-      <tr>
-        <td>Dolg Miha</td>
-        <td>12.11.2015</td>
-        <td>Plača</td>
-        <td>Priliv</td>
-        <td class="priliv">+500 €</td>
-      </tr>
-      <tr>
-        <td>Nakup 0</td>
-        <td>12.11.2015</td>
-        <td>Elektrika</td>
-        <td>Odliv</td>
-        <td class="odliv">-147.76 €</td>
-        
-      </tr>
-      <tr>
-        <td>Nakup 12</td>
-        <td>12.11.2015</td>
-        <td>Avto</td>
-        <td>Odliv</td>
-        <td class="odliv">-13.47 €</td>
-        
-      </tr>
-      <tr>
-        <td>Plača december</td>
-        <td>12.11.2015</td>
-        <td>Plača, Nadure</td>
-        <td>Priliv</td>
-        <td class="priliv">+2076.97 €</td>
-      </tr>
-    </tbody>
   </table>
 </div>

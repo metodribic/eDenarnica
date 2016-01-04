@@ -79,7 +79,6 @@ angular
      
       authService.login = function (credentials) {
         return User.login(credentials).$promise.then(function(response){
-          console.log(response);
           /* boradcast success */
           $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
           /* create session */
@@ -136,7 +135,6 @@ angular
 
 
   .run(function ($state, $rootScope, AUTH_EVENTS, AuthService) {
-    //$rootScope.logged = false;
     $rootScope.$on('$stateChangeStart', function (event, next, $cookie) {
       /* če je stran dostopna za vse jo prikaži ne glede na to ali je uporabnik avtenticiran ali ne*/
       if(next.data.authorizedRoles.indexOf('*') == -1){
@@ -165,7 +163,7 @@ angular
     });
 
     /* AUTH_EVENTS.loginSuccess -> reddirecet na home state*/
-    $rootScope.$on(AUTH_EVENTS.loginSuccess, function(){
+    $rootScope.$on(AUTH_EVENTS.loginSuccess, function($scope){
       $state.go('home');
     });
 

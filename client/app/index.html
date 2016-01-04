@@ -50,8 +50,7 @@
               <li><a ui-sref="expenses"><i class="fa fa-line-chart margin-right20"></i>&nbsp;Zgodovina</a></li>
               <li><a ui-sref="user"><i class="fa fa-user margin-right20"></i>&nbsp;Profil</a></li> 
             </ul>
-
-            <span class="balance">Stanje: 15.346 €</span>
+            <span class="balance" ng-show="loggedIn">Stanje: {{ user.balance }} €</span>
           </div>
         </div>
       </div>
