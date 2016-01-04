@@ -118,7 +118,7 @@
                 <div class="form-group">
                   <label for="labelKolicina" class="col-sm-2 control-label">Količina: </label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="kolicina" type="text" placeholder="npr. 204.45" ng-model="expense.amount" required pattern="\d+\.?\d*" data-error="Dovoljene so samo števke ter decimalna pika!"/>
+                    <input type="text" class="form-control" id="kolicina" type="number" placeholder="npr. 204.45" ng-model="expense.amount" required pattern="\d+\.?\d*" data-error="Dovoljene so samo števke ter decimalna pika!"/>
                   </div>
                 </div>
 
@@ -223,6 +223,7 @@
     <script src="scripts/controllers/expenses.js"></script>
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/ApplicationController.js"></script>
+    <script src="scripts/controllers/events.js"></script>
     <!-- endbuild -->
   </body>
 </html>

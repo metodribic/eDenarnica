@@ -53,6 +53,15 @@ angular
         }
       })
 
+     .state('events', {
+        url:'/events',
+        templateUrl: 'views/events.html',
+        controller: 'EventsController',
+        data: {
+          authorizedRoles: ['admin']
+        }
+      })
+
      .state('login', {
         url:'/',
         templateUrl: 'views/login.html',
@@ -94,11 +103,8 @@ angular
           };
 
           /* log user login */
-          Events.create(tmpEvent).$promise.then(function(reponse){
-            console.log("Loggin logged!")
-            console.log(response);
-          });
-          
+          Events.create(tmpEvent).$promise.then(function(reponse){});
+
           /* set cookie */
           //$cookies.put('eDenarnicaToken',response.id);
           return response.user
@@ -149,11 +155,11 @@ angular
           event.preventDefault();
           if (AuthService.isAuthenticated()) {
             // user is not allowed
-            console.log("Not allowed!")
+            //console.log("Not allowed!")
             $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
           } else {
             // user is not logged in
-            console.log("Not logged in!");
+            //console.log("Not logged in!");
             $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
           }
         }

@@ -8,6 +8,7 @@
     <li><a ui-sref="home"><i class="fa fa-home margin-right20"></i>&nbsp;Domov</a></li>
     <li><a ui-sref="expenses"><i class="fa fa-line-chart margin-right20"></i>&nbsp;Zgodovina</a></li>
     <li><a ui-sref="user"><i class="fa fa-user margin-right20"></i>&nbsp;Profil</a></li>
+    <li ng-show="user.role=='admin'"><a ui-sref="events"><i class="fa fa-hand-spock-o margin-right20"></i>&nbsp;Events</a></li>
   </ul>
 </div>
 

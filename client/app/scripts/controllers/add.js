@@ -33,9 +33,14 @@ angular.module('eDenarnicaApp')
 			$scope.expense.date = new Date();
 
 			Capital.create($scope.expense).$promise.then(function(response){
-				console.log(response);
+				$rootScope.$broadcast('updateCapital');
 			});
 		};
+
+
+		$rootScope.$on('updateCapital', function(){
+			console.log("Need to update user balance!");
+		});
 
 		$scope.validateDate= function(date) {
 			var dateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;

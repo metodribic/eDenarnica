@@ -8,11 +8,26 @@ angular.module('eDenarnicaApp')
 		$scope.latest = null;
 		$scope.limit = 10;
 		$scope.offset = 0;
-		//get user latest in/outcomes
-		Capital.find({ where: {userId:$rootScope.user.id} }).$promise.then(function(response){
-			$scope.latest = response;
-			console.log($scope.latest);
-		});
-  	}]);
+		
+		updateLatest();
+		/* if expense was added, update list*/
+	    $rootScope.$on('updateCapital', function($scope){
+	      updateLatest();
+	    });
 
-//{ limit: $scope.limit, skip: $scope.offset}
+	    function updateLatest(){
+	    	//get user latest in/outcomes
+			Capital.find({
+				filter: {
+					where: { userId:$rootScope.user.id },
+					limit: $scope.limit,
+					skip: $scope.offset
+				}
+			})
+			.$promise.then(function(response){
+					$scope.latest = response;
+			});
+	    }
+
+
+  	}]);

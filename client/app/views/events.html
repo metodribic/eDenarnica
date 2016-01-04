@@ -13,42 +13,28 @@
 </div>
 
 <!-- VIEW CONTENT -->
-<div class="container col-lg-10 col-md-12 col-sm-12 col-xs-12" ng-controller="LatestController">
-  <h2>Pregled preteklih prihodkov in odhodkov</h2>
+<div class="container col-lg-10 col-md-12 col-sm-12 col-xs-12" ng-controller="EventsController">
+  <h2>Pregled preteklih dejavnosti</h2>
   <br>        
   <table class="table table-responsive">
     <thead>
       <tr>
-        <th>Opis</th>
-        <th>Datum</th>
-        <th>Oznaka</th>
-        <th>Tip</th>
-        <th>Količina</th>
+        <th>UserId</th>
+        <th>Type</th>
+        <th>Metadata</th>
+        <th>Date</th>
       </tr>
     </thead>
 
 
     <tbody>
-      <tr ng-repeat="event in latest">
-        <td>{{ event.description }}</td>
-        <td>{{ event.created }}</td>
-        <td>{{ event.tags.toString() }}</td>
+      <tr ng-repeat="event in events">
+        <td>{{ event.userId }}</td>
         <td>{{ event.type }}</td>
-        <td class="odliv" ng-show="event.type == 'odliv'">-{{ event.amount }}</td>
-        <td class="priliv" ng-show="event.type == 'priliv'">+{{ event.amount }}</td>
+        <td>{{ event.metadata }}</td>
+        <td>{{ event.created }}</td>
       </tr>
     </tbody>
-
-
-    <tfoot>
-      <tr style="width:100%">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><b>Stanje:</b></td>
-        <td>{{user.balance}} €</td>
-      </tr>
-    </tfoot>
 
   </table>
 </div>
