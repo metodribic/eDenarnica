@@ -21,7 +21,8 @@ angular.module('eDenarnicaApp')
 				filter: {
 					where: { userId:$rootScope.user.id },
 					limit: $scope.limit,
-					skip: $scope.offset
+					skip: $scope.offset,
+					order: 'created DESC'
 				}
 			})
 			.$promise.then(function(response){

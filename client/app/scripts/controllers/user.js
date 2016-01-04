@@ -4,7 +4,7 @@
  * Controller for editin user settings
  */
 angular.module('eDenarnicaApp')
-	.controller('UserController', ['$scope', '$state', 'User', '$rootScope', function($scope, $state, User, $rootScope) {
+	.controller('UserController', ['$scope', '$state', 'User', '$rootScope', '$resource', function($scope, $state, User, $rootScope, $resource) {
 		
 		/* user se deduje iz $rootScopa*/
 
@@ -19,10 +19,16 @@ angular.module('eDenarnicaApp')
   		/* posodobi uporabnika */
   		$scope.updateUser = function() {
     		$scope.edit = false;
+        $rootScope.user.$save();
+
+
+        console.log($rootScope.user);
+        /*
     		User.upsert($rootScope.user).$promise.then(function(response){
     			console.log("User updated!");
     			console.log($rootScope.user);
     		});
+        */
   		};
 
 

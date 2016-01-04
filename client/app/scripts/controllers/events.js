@@ -6,7 +6,7 @@
 angular.module('eDenarnicaApp')
 	.controller('EventsController', ['$scope', 'Events', '$rootScope', function($scope, Events, $rootScope) {
 		
-		Events.find().$promise.then(function(response){
+		Events.find({ filter:{ order: 'created DESC'}}).$promise.then(function(response){
 			$scope.events = response;
 		});
 

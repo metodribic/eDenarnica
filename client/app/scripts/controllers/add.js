@@ -4,7 +4,7 @@
  * Controller for adding in/outcomes
  */
 angular.module('eDenarnicaApp')
-	.controller('AddController', ['$scope', 'Capital', '$rootScope', function($scope, Capital, $rootScope) {
+	.controller('AddController', ['$scope', 'Capital', '$rootScope', 'User', 'Events', function($scope, Capital, $rootScope, User, Events) {
 		$scope.map = { center: { latitude: 46.0569465, longitude: 14.5057515 }, zoom: 8 };
 		/* doadatne možnosti */
 		$scope.advanced = false;
@@ -32,14 +32,45 @@ angular.module('eDenarnicaApp')
 			$scope.expense.lastUpdated = new Date();
 			$scope.expense.date = new Date();
 
+			/* dodamo nov izdatek */
 			Capital.create($scope.expense).$promise.then(function(response){
+				$scope.znesek = 0;
+				/* ustrezno predznačimo znesek*/
+				if($scope.expense.type == 'odliv')
+					$scope.znesek -= parseFloat($scope.expense.amount);
+				else
+					$scope.znesek += parseFloat($scope.expense.amount);
+
+				/* posodobimo uporabnikovo stanje - samo $boradcastamo */
 				$rootScope.$broadcast('updateCapital');
-			});
+				console.log(response);
+
+				var tmpEvent = {
+		            type: 'createdExpense',
+		            created: new Date(),
+		            userId: response.userId,
+		            metadata: [response]
+		         };
+
+		          /* log user login */
+		          Events.create(tmpEvent).$promise.then(function(reponse){});
+
+					});
 		};
 
-
+		/* posodobimo uporabnikovo stanje */
 		$rootScope.$on('updateCapital', function(){
-			console.log("Need to update user balance!");
+			var balanceTmp = parseFloat($rootScope.user.balance);
+			balanceTmp += parseFloat($scope.znesek);
+
+			/* posodobimo samo polje balance */
+			User.prototype$updateAttributes(
+				{ id: $rootScope.user.id },
+				{ balance: balanceTmp});
+
+			/* popravimo globalno stanje*/
+			$rootScope.user.balance = balanceTmp;
+
 		});
 
 		$scope.validateDate= function(date) {
