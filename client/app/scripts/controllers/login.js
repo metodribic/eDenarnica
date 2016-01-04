@@ -4,7 +4,7 @@
  * Controller for editin user settings
  */
 angular.module('eDenarnicaApp')
-	.controller('LoginController', ['$scope', '$rootScope', 'AUTH_EVENTS', 'AuthService', function($scope, $rootScope, AUTH_EVENTS, AuthService) {
+	.controller('LoginController', ['$scope', '$rootScope', 'AUTH_EVENTS', 'AuthService', 'User', function($scope, $rootScope, AUTH_EVENTS, AuthService, User) {
 
 		// TODO: GET USER
 
@@ -18,28 +18,38 @@ angular.module('eDenarnicaApp')
 
 		$scope.register = false;
 		/* Objekt uporabnik */
-		$scope.user = {
-			name: 'Metod',
-			surname: 'Ribič',
-			username: 'metod',
-			email: 'metod.ribic@gmail.com',
-			balance: 15.346,
-			savings: 350
+		$scope.newUser = {
+			firstname: null,
+			lastname: null,
+			username: null,
+			email: null,
+			role: 'user',
+			savings: 0,
+			balance: 0,
+			tags: [],
+			password: null
 		};
 
 
+
 		$scope.registerUser = function(){
+			$scope.newUser.username = $scope.credentials.username;
+			$scope.newUser.password = $scope.credentials.password;
+			//console.log($scope.newUser);
+			User.create($scope.newUser).$promise.then(function(response){
+				$scope.login($scope.credentials);
+			});
+
+		};
+
+		$scope.registerEnable = function(){
 			$scope.register = true;
 		};
 
 		$scope.registerCancel = function(){
 			$scope.register = false;
 		};
-		/*
-		$scope.login = function(credentials) {
-			console.log(credentials);
-		};
-		*/
+
 
 		$scope.login = function (credentials) {
 		    AuthService.login(credentials).then(function (user) {
