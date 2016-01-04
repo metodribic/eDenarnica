@@ -74,7 +74,7 @@ angular
   })
 
 
-  .factory('AuthService', function ($http, Session, $rootScope, AUTH_EVENTS, User) {
+  .factory('AuthService', function ($http, Session, $rootScope, AUTH_EVENTS, User, Events) {
       var authService = {};
      
       authService.login = function (credentials) {
@@ -85,21 +85,25 @@ angular
           Session.create(response.id, response.user.id, response.user.role);
           /* set user */
           $rootScope.user = response.user;
+
+          var tmpEvent = {
+            type: 'login',
+            created: new Date(),
+            userId: response.user.id,
+            metadata: []
+          };
+
+          /* log user login */
+          Events.create(tmpEvent).$promise.then(function(reponse){
+            console.log("Loggin logged!")
+            console.log(response);
+          });
+          
           /* set cookie */
           //$cookies.put('eDenarnicaToken',response.id);
           return response.user
         })
-        /*
-        return $http
-          .post('api/users/login', credentials)
-          .then(function (response) {
-              // broadast da je login uspel 
-              $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-              Session.create(response.data.id, 
-                             response.data.userId);
-              return response.data.userId;
-          });
-  */
+
       };
      
       /* preveri če obstaja userId */

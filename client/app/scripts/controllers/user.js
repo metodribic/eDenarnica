@@ -19,6 +19,10 @@ angular.module('eDenarnicaApp')
   		/* posodobi uporabnika */
   		$scope.updateUser = function() {
     		$scope.edit = false;
+    		User.upsert($rootScope.user).$promise.then(function(response){
+    			console.log("User updated!");
+    			console.log($rootScope.user);
+    		});
   		};
 
 
