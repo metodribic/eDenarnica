@@ -54,7 +54,7 @@ angular
       })
 
      .state('login', {
-        url:'',
+        url:'/',
         templateUrl: 'views/login.html',
         controller: 'LoginController',
         data: {
@@ -63,11 +63,6 @@ angular
       })
  }])
 
-  .constant('USER_ROLES', {
-    all: '*',
-    admin: 'admin',
-    user: 'user'
-  })
 
   .constant('AUTH_EVENTS', {
       loginSuccess: 'auth-login-success',
@@ -85,9 +80,14 @@ angular
       authService.login = function (credentials) {
         return User.login(credentials).$promise.then(function(response){
           console.log(response);
+          /* boradcast success */
           $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+          /* create session */
           Session.create(response.id, response.user.id, response.user.role);
+          /* set user */
           $rootScope.user = response.user;
+          /* set cookie */
+          //$cookies.put('eDenarnicaToken',response.id);
           return response.user
         })
         /*
@@ -115,7 +115,6 @@ angular
 
         /* preveri če je loginan in ima pravice za dostop do te strani */
         return (authService.isAuthenticated() && authorizedRoles.indexOf(Session.userRole) !== -1);
-        //return (authService.isAuthenticated());
       };
      
       return authService;
@@ -138,35 +137,38 @@ angular
 
   .run(function ($state, $rootScope, AUTH_EVENTS, AuthService) {
     //$rootScope.logged = false;
-    $rootScope.$on('$stateChangeStart', function (event, next) {
+    $rootScope.$on('$stateChangeStart', function (event, next, $cookie) {
       /* če je stran dostopna za vse jo prikaži ne glede na to ali je uporabnik avtenticiran ali ne*/
       if(next.data.authorizedRoles.indexOf('*') == -1){
         /* priodbi vse role, ki so dovoljene/potrebne za dostop do te strani*/
         var authorizedRoles = next.data.authorizedRoles;
-          /* če uporabniku ni dovoljen dostop do strani oziroma ni vpisan*/
-          if (!AuthService.isAuthorized(authorizedRoles)) {
-            event.preventDefault();
-            if (AuthService.isAuthenticated()) {
-              // user is not allowed
-              console.log("you are not allowed to be here!")
-              $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
-            } else {
-              // user is not logged in
-              console.log("Not logged in!");
-              $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
-            }
+        /* če uporabniku ni dovoljen dostop do strani oziroma ni vpisan*/
+        if (!AuthService.isAuthorized(authorizedRoles)) {
+          event.preventDefault();
+          if (AuthService.isAuthenticated()) {
+            // user is not allowed
+            console.log("Not allowed!")
+            $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
+          } else {
+            // user is not logged in
+            console.log("Not logged in!");
+            $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
           }
+        }
       }
 
-      /* v primeru da prožimo AUTH_EVENTS.notAuthenticated, reddircetamo na login state*/
-      $rootScope.$on(AUTH_EVENTS.notAuthenticated, function(){
-        $state.go('login');
-      })
-
-      $rootScope.$on(AUTH_EVENTS.loginSuccess, function(){
-        $state.go('home');
-      })
+      
     });
+    /* AUTH_EVENTS.notAuthenticated -> reddirecet na login state*/
+    $rootScope.$on(AUTH_EVENTS.notAuthenticated, function(){
+      $state.go('login');
+    });
+
+    /* AUTH_EVENTS.loginSuccess -> reddirecet na home state*/
+    $rootScope.$on(AUTH_EVENTS.loginSuccess, function(){
+      $state.go('home');
+    });
+
   });
 
 

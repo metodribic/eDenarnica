@@ -6,8 +6,7 @@
 angular.module('eDenarnicaApp')
 	.controller('UserController', ['$scope', '$state', 'User', '$rootScope', function($scope, $state, User, $rootScope) {
 		
-		/* pridobi uporabnika iz rootScopa, ki se nastavi pri loginu */
-		$scope.user = $rootScope.user;
+		/* user se deduje iz $rootScopa*/
 
 		/* Edit user */
 		$scope.edit = false;

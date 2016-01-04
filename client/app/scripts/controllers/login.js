@@ -4,7 +4,7 @@
  * Controller for editin user settings
  */
 angular.module('eDenarnicaApp')
-	.controller('LoginController', ['$scope', '$rootScope','AUTH_EVENTS', 'AuthService', function($scope, $rootScope, AUTH_EVENTS, AuthService) {
+	.controller('LoginController', ['$scope', '$rootScope', 'AUTH_EVENTS', 'AuthService', function($scope, $rootScope, AUTH_EVENTS, AuthService) {
 
 		// TODO: GET USER
 
@@ -44,7 +44,7 @@ angular.module('eDenarnicaApp')
 		$scope.login = function (credentials) {
 		    AuthService.login(credentials).then(function (user) {
 		      $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-		      $scope.setCurrentUser(user);
+		      //$scope.setCurrentUser(user);
 		    }, function () {
 		      $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
 		    });

@@ -4,31 +4,37 @@
  * Controller for adding in/outcomes
  */
 angular.module('eDenarnicaApp')
-	.controller('AddController', ['$scope', function($scope) {
+	.controller('AddController', ['$scope', 'Capital', '$rootScope', function($scope, Capital, $rootScope) {
 		$scope.map = { center: { latitude: 46.0569465, longitude: 14.5057515 }, zoom: 8 };
-		//doadatne možnosti
+		/* doadatne možnosti */
 		$scope.advanced = false;
-		// objekt izdatek
+
+		/* izdatek */
 		$scope.expense = {
-			type: 'odliv',
-			description: '',
-			tags: [],
 			amount: null,
+			createdAt: null,
 			date: null,
-			transaction: 'cash'
+			description: null,
+			lastUpdated: null,
+			created: null,
+			notes: null,
+			tags: null,
+			transaction: 'cash',
+			type: 'odliv',
+			userId: ''
 		};
 
+		/* dodaj izdatek */
 		$scope.addExpenses = function(){
-			console.log($scope.expense);
-			 $scope.expense = {
-				type: 'odliv',
-				description: '',
-				tags: [],
-				amount: null,
-				date: null,
-				transaction: 'cash'
-			};
-			// TODO post
+			$scope.expense.userId = $rootScope.user.id;
+			$scope.expense.tags = $scope.expense.tags.split(',');
+			$scope.expense.created = new Date();
+			$scope.expense.lastUpdated = new Date();
+			$scope.expense.date = new Date();
+
+			Capital.create($scope.expense).$promise.then(function(response){
+				console.log(response);
+			});
 		};
 
 		$scope.validateDate= function(date) {
