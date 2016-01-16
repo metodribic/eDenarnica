@@ -7,24 +7,11 @@ ds.automigrate('user', function(err) {
 
   var accounts = [
     {
-      email: 'metod.ribic@gmail.com',
-      firstname: 'Metod',
-      lastname: 'Ribič',
-      username: "metodribic",
-      balance: 1000,
-      savings: 250,
-      tags: [],
-      password: 'p4ssw0rd',
-      createdAt: new Date(),
-      lastModifiedAt: new Date(),
-      role: "user"
-    },
-    {
-      email: 'admin@gmail.com',
+      email: 'admin@admin.com',
       firstname: 'admin',
       lastname: 'admin',
       username: "admin",
-      balance: 2454,
+      balance: 5000,
       savings: 0,
       tags: [],
       password: 'admin',

@@ -51,6 +51,7 @@
               <li><a ui-sref="user"><i class="fa fa-user margin-right20"></i>&nbsp;Profil</a></li> 
             </ul>
             <span class="balance" ng-show="loggedIn">Stanje: {{ user.balance }} €</span>
+            <span class="logout" ng-show="loggedIn" ng-click="logout()"><i class="fa fa-sign-out"></i></span>
           </div>
         </div>
       </div>

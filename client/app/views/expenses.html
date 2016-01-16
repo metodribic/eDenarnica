@@ -19,7 +19,7 @@
   	<div class="col-md-8 col-lg-8 col-sm-12">
         <div class="input-group">
             <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-search"></i></span>
-            <input type="search" class="form-control" placeholder="Iskanje po izdatkih" ng-model-options="{ debounce: 500 }" />
+            <input type="search" class="form-control" placeholder="Iskanje po izdatkih" ng-model-options="{ debounce: 500 }" ng-keyup="search()" ng-model="query"/>
         </div>
     </div>
 
@@ -36,7 +36,7 @@
           <li><a ng-click="setSearch('type')">Tipu</a></li>
         </ul>
       </div><!-- end btn-group -->
-      <input type="text" class="form-control" aria-label="..." ng-model="search">
+      <input type="text" class="form-control" aria-label="..." ng-model="searchType">
     </div><!-- end input-group -->
   </div><!-- end row -->
   <br>
@@ -55,76 +55,16 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td>Nakup 0</td>
-          <td>1.1.2016</td>
-          <td>Elektrika</td>
-          <td>Odliv</td>
-          <td class="odliv">-147.76 €</td>
-          
-        </tr>
-        <tr>
-          <td>Nakup 12</td>
-          <td>12.11.2015</td>
-          <td>Avto</td>
-          <td>Odliv</td>
-          <td class="odliv">-13.47 €</td>
-          
-        </tr>
-        <tr>
-          <td>Plača marec</td>
-          <td>12.11.2015</td>
-          <td>Plača</td>
-          <td>Priliv</td>
-          <td class="priliv">+1780.97 €</td>
-        </tr>
-        <tr>
-          <td>Nakup 0</td>
-          <td>12.11.2015</td>
-          <td>Elektrika</td>
-          <td>Odliv</td>
-          <td class="odliv">-147.76 €</td>
-          
-        </tr>
-        <tr>
-          <td>Nakup 12</td>
-          <td>12.11.2015</td>
-          <td>Avto</td>
-          <td>Odliv</td>
-          <td class="odliv">-13.47 €</td>
-          
-        </tr>
-        <tr>
-          <td>Dolg Miha</td>
-          <td>12.11.2015</td>
-          <td>Plača</td>
-          <td>Priliv</td>
-          <td class="priliv">+500 €</td>
-        </tr>
-        <tr>
-          <td>Nakup 0</td>
-          <td>12.11.2015</td>
-          <td>Elektrika</td>
-          <td>Odliv</td>
-          <td class="odliv">-147.76 €</td>
-          
-        </tr>
-        <tr>
-          <td>Nakup 12</td>
-          <td>12.11.2015</td>
-          <td>Avto</td>
-          <td>Odliv</td>
-          <td class="odliv">-13.47 €</td>
-          
-        </tr>
-        <tr>
-          <td>Plača december</td>
-          <td>12.11.2015</td>
-          <td>Plača, Nadure</td>
-          <td>Priliv</td>
-          <td class="priliv">+2076.97 €</td>
-        </tr>
-      </tbody>
+      <tr ng-repeat="event in expenses">
+        <td>{{ event.description }}</td>
+        <td>{{ event.created | date: 'dd MMMM yyyy, HH:mm:ss' }}</td>
+        <td>{{ event.tags.toString() }}</td>
+        <td>{{ event.type }}</td>
+        <td class="odliv" ng-show="event.type == 'odliv'">-{{ event.amount }}</td>
+        <td class="priliv" ng-show="event.type == 'priliv'">+{{ event.amount }}</td>
+      </tr>
+
+    </tbody>
     </table>
 
     <nav>

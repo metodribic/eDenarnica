@@ -27,6 +27,7 @@ angular.module('eDenarnicaApp')
 			})
 			.$promise.then(function(response){
 					$scope.latest = response;
+					//console.log(response);
 			});
 	    }
 

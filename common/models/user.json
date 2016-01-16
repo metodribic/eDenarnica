@@ -33,6 +33,13 @@
     "principalType": "ROLE",
     "principalId": "$everyone",
     "permission": "ALLOW"
+    },
+    {
+    "accessType": "EXECUTE",
+    "property": "upsert",
+    "principalType": "ROLE",
+    "principalId": "$everyone",
+    "permission": "ALLOW"
     }
   ],
   "methods": {}

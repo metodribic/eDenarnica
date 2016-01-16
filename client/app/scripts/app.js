@@ -111,6 +111,7 @@ angular
         })
 
       };
+
      
       /* preveri če obstaja userId */
       authService.isAuthenticated = function () {
@@ -176,6 +177,12 @@ angular
     $rootScope.$on(AUTH_EVENTS.loginSuccess, function($scope){
       $state.go('home');
     });
+
+    $rootScope.$on(AUTH_EVENTS.logoutSuccess, function($scope){
+      $rootScope.user = '';
+      $state.go('login');
+    });
+
 
   });
 

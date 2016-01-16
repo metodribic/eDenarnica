@@ -32,7 +32,7 @@
         <td>{{ event.userId }}</td>
         <td>{{ event.type }}</td>
         <td>{{ event.metadata }}</td>
-        <td>{{ event.created }}</td>
+        <td>{{ event.created | date: 'dd MMMM yyyy, HH:mm:ss'}}</td>
       </tr>
     </tbody>
 

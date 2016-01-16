@@ -115,6 +115,16 @@ body {
   color: $navbar-default-link-color;
 }
 
+
+.loguot {
+  float: right;
+  padding-right: 100px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: $navbar-default-link-color;
+  cursor: pointer;
+}
+
 .about-first {
   background-color: #313A45;
 }

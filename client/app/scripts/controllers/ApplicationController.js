@@ -14,4 +14,10 @@ angular.module('eDenarnicaApp')
 	      $scope.loggedIn = true;
 	    });
 
+	    $scope.logout = function(){
+	      $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
+	      $scope.loggedIn = false;
+	      console.log('logout');
+	    };
+
   	}]);

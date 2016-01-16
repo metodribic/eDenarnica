@@ -5869,6 +5869,14 @@ body {
   padding-bottom: 15px;
   color: #ffffff; }
 
+.loguot {
+  float: right;
+  padding-right: 100px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #ffffff;
+  cursor: pointer; }
+
 .about-first {
   background-color: #313A45; }
 

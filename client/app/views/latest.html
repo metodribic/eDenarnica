@@ -31,7 +31,7 @@
     <tbody>
       <tr ng-repeat="event in latest">
         <td>{{ event.description }}</td>
-        <td>{{ event.created }}</td>
+        <td>{{ event.created | date: 'dd MMMM yyyy, HH:mm:ss' }}</td>
         <td>{{ event.tags.toString() }}</td>
         <td>{{ event.type }}</td>
         <td class="odliv" ng-show="event.type == 'odliv'">-{{ event.amount }}</td>
